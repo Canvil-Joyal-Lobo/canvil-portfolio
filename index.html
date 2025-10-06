@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Canvil Joyal Lobo | Professional Portfolio</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      padding: 0;
+      margin: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #0f0f0f;
+      color: white;
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+
+    /* HEADER */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 10%;
+      background: #111;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    header h1 {
+      font-size: 24px;
+      color: #00bfff;
+    }
+
+    nav {
+      display: flex;
+    }
+
+    nav a {
+      color: white;
+      margin-left: 20px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #00bfff;
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        display: none;
+        flex-direction: column;
+        background: #111;
+        position: absolute;
+        top: 70px;
+        right: 10%;
+        width: 200px;
+        border-radius: 5px;
+        text-align: center;
+      }
+      nav.active {
+        display: flex;
+      }
+      nav a {
+        margin: 15px 0;
+      }
+      .menu-toggle {
+        display: block;
+      }
+    }
+
+    /* HERO */
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      padding: 60px 10%;
+    }
+
+    .hero-left h2 {
+      font-size: 36px;
+      margin-bottom: 10px;
+    }
+
+    .typewrite {
+      color: #00bfff;
+      font-size: 22px;
+      font-weight: 500;
+    }
+
+    /* Animation */
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Social Icons Animation */
+    .social-icon {
+      font-size: 26px;
+      color: #00bfff;
+      text-decoration: none;
+      transition: transform 0.3s ease, color 0.3s ease, text-shadow 0.3s ease;
+    }
+
+    .social-icon:hover {
+      transform: scale(1.3);
+      color: #fff;
+      text-shadow: 0 0 10px #00bfff, 0 0 20px #00bfff;
+    }
+
+    /* Running Text Animation */
+    .contact-intro {
+      width: 100%;
+      overflow: hidden;
+      white-space: nowrap;
+      box-sizing: border-box;
+      border-top: 1px solid #222;
+      border-bottom: 1px solid #222;
+      margin: 20px 0 40px 0;
+    }
+
+    .contact-intro p {
+      display: inline-block;
+      padding-left: 100%;
+      animation: slideText 18s linear infinite;
+      font-size: 18px;
+      color: #00bfff;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+    }
+
+    @keyframes slideText {
+      from { transform: translateX(0); }
+      to { transform: translateX(-100%); }
+    }
+
+    .buttons a {
+      display: inline-block;
+      padding: 10px 20px;
+      margin-right: 15px;
+      margin-top: 20px;
+      color: white;
+      border: 2px solid #00bfff;
+      border-radius: 25px;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .buttons a:hover {
+      background: #00bfff;
+      color: #000;
+      transform: scale(1.05);
+    }
+
+    .hero-right img {
+      width: 250px;
+      height: 250px;
+      border-radius: 50%;
+      box-shadow: 0 0 20px #00bfff;
+    }
+
+    /* SECTIONS */
+    section {
+      padding: 60px 10%;
+    }
+
+    h2.section-title {
+      font-size: 28px;
+      margin-bottom: 20px;
+      border-bottom: 2px solid #333;
+      padding-bottom: 10px;
+      color: #00bfff;
+    }
+
+    .about p {
+      color: #ccc;
+    }
+
+    /* SKILLS */
+    .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-top: 15px;
+    }
+
+    .skill {
+      background: #1a1a1a;
+      padding: 10px 20px;
+      border-radius: 20px;
+      border: 1px solid #333;
+      transition: 0.3s;
+    }
+
+    .skill:hover {
+      background: #00bfff;
+      color: black;
+    }
+
+    /* EDUCATION & EXPERIENCE */
+    /* EDUCATION & EXPERIENCE */
+.timeline {
+  border-left: 3px solid #00bfff;
+  padding-left: 20px;
+  margin-top: 30px;
+}
+
+.timeline-item {
+  margin-bottom: 25px;
+  position: relative;
+}
+
+/* Removed the circular dot */
+.timeline-item h3 {
+  color: #00bfff;
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+.timeline-item h4 {
+  font-size: 16px;
+  color: #aaa;
+}
+
+.timeline-item p {
+  color: #ccc;
+  margin-top: 5px;
+}
+
+    /* CONTACT */
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      margin-bottom: 15px;
+      padding: 10px;
+      background: #222;
+      border: none;
+      border-radius: 5px;
+      color: white;
+    }
+
+    .contact-form button {
+      background: #00bfff;
+      color: black;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .contact-form button:hover {
+      transform: scale(1.05);
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 30px 10%;
+      background: #111;
+    }
+
+    .social-icons a {
+      margin: 0 10px;
+      font-size: 20px;
+      color: #00bfff;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .social-icons a:hover {
+      transform: scale(1.2);
+    }
+
+
+
+
+    
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <h1>Canvil Joyal Lobo</h1>
+  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#education">Education</a>
+    <a href="#experience">Experience</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<div class="hero" id="home">
+  <div class="hero-left">
+    <h2>Hello, I'm <strong>Canvil Joyal Lobo</strong></h2>
+    <div class="typewrite" data-period="2000" data-type='["IT Support Engineer", "Data Analyst Learner", "Digital Marketing Enthusiast", "Creative Designer"]'></div>
+    <div class="buttons">
+      <a href="Canvil_Joyal_Lobo_CV_ITSupport.pdf" download>Download Resume</a>
+      <a href="#contact">Hire Me</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <img src="https://media.licdn.com/dms/image/v2/D4E03AQF2Ti3bKlgrcw/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1719846983762?e=2147483647&v=beta&t=SMC9eeUr1CVRmlg95x5Y2tweatO1oTeFPENh60dY8DU" alt="Canvil Joyal Lobo">
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about" class="about">
+  <h2 class="section-title">About Me</h2>
+  <p>
+    I am an MCA graduate with 1+ year of experience in IT Service Administration, Technical Support, and Web Hosting Operations.
+    Skilled in cPanel, Plesk, WHM, DNS, MySQL, and phpMyAdmin while assisting clients under the BigRock  brand.
+    Passionate about data analysis, digital marketing, and creative design using Canva. Currently based in Dubai and open to
+    IT Support, Data Analyst, HR, or Digital Marketing roles in the UAE.
+  </p>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <h2 class="section-title">Key Skills</h2>
+  <div class="skills-list">
+    <div class="skill">cPanel</div>
+    <div class="skill">Plesk</div>
+    <div class="skill">DNS Management</div>
+    <div class="skill">WHM</div>
+    <div class="skill">MySQL / phpMyAdmin</div>
+    <div class="skill">Technical Support</div>
+    <div class="skill">Hosting Management</div>
+    <div class="skill">Power BI</div>
+    <div class="skill">Advanced Excel</div>
+    <div class="skill">Digital Marketing</div>
+    <div class="skill">Canva Design</div>
+    <div class="skill">UI/UX Concepts</div>
+    <div class="skill">Social Media Analytics</div>
+    <div class="skill">HR Coordination</div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <h2 class="section-title">Education</h2>
+  <div class="timeline">
+    <div class="timeline-item">
+      <h3>Master of Computer Applications (MCA)</h3>
+      <h4>St. Aloysius College (Autonomous), Mangalore — 2025</h4>
+      <p>Focused on IT systems, database management, and machine learning concepts.</p>
+    </div>
+    <div class="timeline-item">
+      <h3>Bachelor of Computer Applications (BCA)</h3>
+      <h4>St. Aloysius College (Autonomous), Mangalore — 2023</h4>
+      <p>Developed foundational knowledge in programming, database systems, and web technologies.</p>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <h2 class="section-title">Professional Experience</h2>
+  <div class="timeline">
+    <div class="timeline-item">
+      <h3>Junior Support Engineer</h3>
+      <h4>UnifyCX (Client: Newfold Digital / BigRock) | June 2025 – September 2025</h4>
+      <p>Handled customer support for hosting products, domains, DNS, and SSL configurations. Managed web environments using cPanel, Plesk, and WHM. Provided technical guidance and issue resolution for BigRock customers.</p>
+    </div>
+    <div class="timeline-item">
+      <h3>Junior Analyst</h3>
+      <h4>GlowTouch Technologies | June 2023 – January 2024</h4>
+      <p>Monitored and maintained database servers, ensured data accuracy, and collaborated with DevOps and Infra teams to improve performance. Created documentation for process optimization and incident tracking.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <h2 class="section-title">Contact Me</h2>
+  <div class="contact-intro">
+    <p>If you’re an HR or recruiter looking to hire, please fill out the form below to reach me instantly.</p>
+  </div>
+
+  <form class="contact-form" action="https://formsubmit.co/canvillobo1212@gmail.com" method="POST">
+    <input type="hidden" name="_subject" value="New Job Opportunity / Message from Portfolio Website">
+    <input type="hidden" name="_template" value="table">
+    <input type="hidden" name="_autoresponse" value="Thank you for contacting Canvil Joyal Lobo. I’ve received your message and will get back to you shortly.">
+
+    <input type="text" name="name" placeholder="Full Name" required />
+    <input type="email" name="email" placeholder="Email Address" required />
+    <input type="text" name="subject" placeholder="Subject" required />
+    <textarea name="message" rows="4" placeholder="Your Message" required></textarea>
+    <button type="submit">Send Message</button>
+  </form>
+
+  <div class="contact-details" style="margin-top:40px; text-align:center; animation: fadeInUp 1.5s ease;">
+    <h3 style="font-size:26px; margin-bottom:15px; color:#00bfff; letter-spacing:1px;">Get in Touch</h3>
+
+    <p style="font-size:18px; margin:8px 0; color:#ddd;">
+      <strong>Email:</strong> 
+      <a href="mailto:canvillobo1212@gmail.com" style="color:#00bfff; text-decoration:none;">canvillobo1212@gmail.com</a>
+    </p>
+
+    <p style="font-size:18px; margin:8px 0; color:#ddd;">
+      <strong>UAE Phone:</strong> 
+      <span style="color:#00bfff;">+971 58 244 6093</span>
+    </p>
+
+    <p style="font-size:18px; margin:8px 0; color:#ddd;">
+      <strong>Location:</strong> Dubai, United Arab Emirates
+    </p>
+
+    <div class="social-icons" style="margin-top:20px; display:flex; justify-content:center; gap:25px;">
+      <a href="https://linkedin.com/in/canvil-joyal-lobo-831846313" target="_blank" class="social-icon">💼</a>
+      <a href="mailto:canvillobo1212@gmail.com" class="social-icon">📧</a>
+      <a href="https://www.instagram.com/canviljoyallobo/" target="_blank" class="social-icon">📸</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>&copy; 2025 Canvil Joyal Lobo</p>
+</footer>
+
+<script>
+  // Typing Animation
+  var TxtType = function(el, toRotate, period) {
+    this.toRotate = toRotate;
+    this.el = el;
+    this.loopNum = 0;
+    this.period = parseInt(period, 10) || 2000;
+    this.txt = '';
+    this.tick();
+    this.isDeleting = false;
+  };
+
+  TxtType.prototype.tick = function() {
+    var i = this.loopNum % this.toRotate.length;
+    var fullTxt = this.toRotate[i];
+    this.txt = this.isDeleting ? fullTxt.substring(0, this.txt.length - 1)
+                               : fullTxt.substring(0, this.txt.length + 1);
+    this.el.innerHTML = '<span class="wrap">' + this.txt + '</span>';
+    var that = this;
+    var delta = this.isDeleting ? 100 : 200;
+    if (!this.isDeleting && this.txt === fullTxt) {
+      delta = this.period;
+      this.isDeleting = true;
+    } else if (this.isDeleting && this.txt === '') {
+      this.isDeleting = false;
+      this.loopNum++;
+      delta = 500;
+    }
+    setTimeout(function() { that.tick(); }, delta);
+  };
+
+  window.onload = function() {
+    var elements = document.getElementsByClassName('typewrite');
+    for (var i = 0; i < elements.length; i++) {
+      var toRotate = elements[i].getAttribute('data-type');
+      var period = elements[i].getAttribute('data-period');
+      if (toRotate) new TxtType(elements[i], JSON.parse(toRotate), period);
+    }
+  };
+
+  function toggleMenu() {
+    document.querySelector("nav").classList.toggle("active");
+  }
+</script>
+</body>
+</html>
